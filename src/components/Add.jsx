@@ -11,6 +11,7 @@ const AddWord = () => {
     type: 'noun',
     definition: '',
     example: '',
+    timestamp:''
   });
   const [message, setMessage] = useState(null);
   const navigate = useNavigate();
@@ -38,6 +39,7 @@ const AddWord = () => {
           type:formData.type, 
           definition:formData.definition, 
           image:formData.image, 
+          timestamp:formData.timestamp,
           examples, token}),
       });
 
@@ -135,6 +137,16 @@ const AddWord = () => {
             className="w-full p-2 border rounded"
           />
         </div>
+        <div>
+          <label className="block text-gray-700">timeStamp:</label>
+          <input
+            type="date"
+            name="timestamp"
+            value={formData.timestamp}
+            onChange={handleChange}
+            className="w-full p-2 border rounded"
+          />
+        </div>
         {/* Example */}
         <div>
           <label className="block text-gray-700">Example (comma-separated):</label>
@@ -158,5 +170,4 @@ const AddWord = () => {
     </div>
   );
 };
-
 export default AddWord;
